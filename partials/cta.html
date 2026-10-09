@@ -1,0 +1,26 @@
+<section class="cta-final" data-theme="dark" aria-labelledby="cta-final-title">
+  <svg class="cta-final__waves" viewBox="0 0 1440 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="cta-wave-gradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#FF8200"/>
+        <stop offset="0.42" stop-color="#F3D2B0"/>
+        <stop offset="0.55" stop-color="#E4EFF6"/>
+        <stop offset="1" stop-color="#8DC8E8"/>
+      </linearGradient>
+    </defs>
+    <path pathLength="1" data-draw d="M-20 380 C 220 380, 340 200, 600 220 S 1000 420, 1460 210" stroke="url(#cta-wave-gradient)" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
+    <path pathLength="1" data-draw d="M-20 420 C 260 410, 380 260, 640 270 S 1040 440, 1460 260" stroke="url(#cta-wave-gradient)" stroke-width="1" fill="none" vector-effect="non-scaling-stroke" opacity="0.55"/>
+    <path pathLength="1" data-draw d="M-20 460 C 300 440, 420 320, 680 320 S 1080 460, 1460 310" stroke="url(#cta-wave-gradient)" stroke-width="1" fill="none" vector-effect="non-scaling-stroke" opacity="0.3"/>
+  </svg>
+  <div class="container cta-final__inner">
+    <p class="eyebrow" data-reveal>{{eyebrow}}</p>
+    <h2 class="cta-final__title" id="cta-final-title" data-split>{{title}}</h2>
+    <div class="cta-final__body" data-reveal>
+      <p class="lead">{{text}}</p>
+      <a class="btn btn--primary" href="{{href}}">
+        <span class="btn__label">{{label}}</span>
+        <!-- @icon btn-arrow -->
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,380 @@
+/* ==========================================================================
+   Home hero — scroll-scrubbed cinematic stage
+   --------------------------------------------------------------------------
+   Static by default (no JS / reduced motion): a full-viewport hero.
+   With `.motion` (set before first paint) the track grows so the sticky stage
+   stays pinned while the media scrubs. JS fine-tunes --hero-scrub per strategy.
+   ========================================================================== */
+
+.page-home {
+  --hero-scrub: 210svh;    /* scroll distance mapped to the media timeline   */
+  --hero-overlap: 55svh;   /* next section slides over the pinned stage      */
+}
+
+@media (max-width: 767px) {
+  .page-home {
+    --hero-scrub: 150svh;
+    --hero-overlap: 40svh;
+  }
+}
+
+.hero {
+  --scrim: 1;
+
+  position: relative;
+  background: var(--c-ocean);
+  color: var(--c-white);
+}
+
+.hero__track {
+  position: relative;
+}
+
+.hero__stage {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Scrub mode — sticky stage inside an extended track (no scroll hijacking) */
+.motion .hero__track {
+  height: calc(100vh + var(--hero-scrub) + var(--hero-overlap));
+  height: calc(100lvh + var(--hero-scrub) + var(--hero-overlap));
+}
+
+.motion .hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100lvh;
+}
+
+/* ---- Media ----------------------------------------------------------- */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--c-ocean);
+}
+
+.hero-media__poster,
+.hero-media__poster img,
+.hero-media__video,
+.hero-media__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-media__poster img,
+.hero-media__video {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+.hero-media__poster {
+  transform-origin: 50% 40%;
+  will-change: transform;
+}
+
+.hero-media__poster--fallback {
+  background:
+    radial-gradient(90% 70% at 70% 20%, rgb(141 200 232 / 0.35), transparent 60%),
+    radial-gradient(70% 60% at 10% 100%, rgb(255 130 0 / 0.22), transparent 60%),
+    var(--c-ocean);
+}
+
+.hero-media__video,
+.hero-media__canvas {
+  opacity: 0;
+  transition: opacity 700ms var(--ease-out);
+}
+
+.hero-media.is-ready .hero-media__video,
+.hero-media.is-ready .hero-media__canvas {
+  opacity: 1;
+}
+
+/* Legibility scrim: left (headline), bottom (lead/CTAs), top (header) */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(12 28 54 / 0.82) 0%, rgb(12 28 54 / 0.6) 34%, rgb(12 28 54 / 0.18) 66%, rgb(12 28 54 / 0.24) 100%),
+    linear-gradient(0deg, rgb(12 28 54 / 0.9) 0%, rgb(12 28 54 / 0.35) 34%, rgb(12 28 54 / 0) 58%),
+    linear-gradient(180deg, rgb(12 28 54 / 0.55) 0%, rgb(12 28 54 / 0) 24%);
+  opacity: var(--scrim);
+}
+
+/* Extra veil used at the end of the sequence (animated via --veil) */
+.hero__stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--c-ocean-deep);
+  opacity: var(--veil, 0);
+  pointer-events: none;
+}
+
+/* ---- Content ----------------------------------------------------------- */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-content: end;
+  gap: var(--space-7);
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  padding-top: calc(var(--header-h) + var(--space-6));
+  padding-bottom: clamp(4.5rem, 3rem + 6vh, 7.5rem);
+}
+
+.hero__content {
+  display: grid;
+  gap: clamp(1.25rem, 0.8rem + 1.6vw, 2.25rem);
+  justify-items: start;
+  will-change: transform, opacity;
+}
+
+.hero .hero__eyebrow {
+  color: var(--c-white);
+  max-width: 34rem;
+  text-shadow: 0 1px 12px rgb(12 28 54 / 0.6);
+}
+
+.hero__title {
+  font-size: var(--fs-display);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  text-wrap: initial;
+}
+
+.hero__line {
+  display: block;
+  overflow: hidden;
+  /* room for descenders inside the reveal mask */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero__line-inner {
+  display: inline-block;
+}
+
+.hero__foot {
+  display: grid;
+  gap: var(--space-6);
+  justify-items: start;
+}
+
+.hero__lead {
+  max-width: 36rem;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.86);
+}
+
+.hero__actions .btn--secondary {
+  --btn-fg: var(--c-white);
+}
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+    align-items: end;
+  }
+
+  .hero__content {
+    grid-column: 1 / span 9;
+  }
+
+  .hero__foot {
+    grid-template-columns: minmax(0, 32rem) auto;
+    align-items: end;
+    column-gap: var(--space-7);
+  }
+
+  .hero__panel {
+    grid-column: 10 / -1;
+  }
+}
+
+/* ---- Trading interests panel -------------------------------------------- */
+.hero__panel {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero__panel {
+    display: grid;
+    gap: var(--space-4);
+    align-self: end;
+    padding: var(--space-5);
+    border: 1px solid rgb(255 255 255 / 0.14);
+    border-radius: var(--radius-md);
+    background: rgb(12 28 54 / 0.42);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
+
+.hero__panel-label {
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-sky);
+}
+
+.hero__panel-list {
+  display: grid;
+}
+
+.hero__panel-list li {
+  position: relative;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.hero__panel-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  padding-block: 0.7rem;
+  font-size: 0.9375rem;
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  color: rgb(255 255 255 / 0.62);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.hero__panel-list .index-num {
+  color: rgb(255 255 255 / 0.5);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+/* Per-category progress hairline (scaleX driven by --cat-progress) */
+.hero__panel-list li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  background: var(--gradient-brand);
+  transform: scaleX(var(--cat-progress, 0));
+  transform-origin: left;
+}
+
+.hero__panel-list li.is-active a,
+.hero__panel-list a:hover {
+  color: var(--c-white);
+}
+
+.hero__panel-list li.is-active .index-num {
+  color: var(--c-tangerine);
+}
+
+.hero__panel-note {
+  font-size: var(--fs-xs);
+  color: var(--c-on-dark-muted);
+}
+
+/* ---- Progress indicator ---------------------------------------------- */
+.hero__progress {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.25rem, 0.8rem + 1.5vh, 2rem);
+  z-index: 2;
+  display: none;
+  align-items: center;
+  gap: 0.85rem;
+  transform: translateX(-50%);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.motion .hero__progress {
+  display: flex;
+}
+
+.hero__progress-track {
+  position: relative;
+  width: clamp(80px, 12vw, 160px);
+  height: 2px;
+  border-radius: 2px;
+  background: rgb(255 255 255 / 0.22);
+  overflow: hidden;
+}
+
+.hero__progress-bar {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (max-width: 767px) {
+  .hero__progress {
+    left: auto;
+    right: var(--gutter);
+    transform: none;
+  }
+
+  .hero__progress-label {
+    display: none;
+  }
+}
+
+/* ---- Mobile portrait: stronger scrim, tighter rhythm ---------------------- */
+@media (max-width: 767px) {
+  .hero__scrim {
+    background:
+      linear-gradient(0deg, rgb(12 28 54 / 0.94) 0%, rgb(12 28 54 / 0.7) 38%, rgb(12 28 54 / 0.15) 70%),
+      linear-gradient(180deg, rgb(12 28 54 / 0.6) 0%, rgb(12 28 54 / 0) 26%);
+  }
+
+  .hero__inner {
+    padding-bottom: 4rem;
+  }
+
+  .hero__actions {
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ---- Sheet transition: the next section slides over the pinned stage ----- */
+.motion .page-home .showcase {
+  z-index: 3;
+  margin-top: calc(-1 * var(--hero-overlap));
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: 0 -40px 80px -20px rgb(12 28 54 / 0.45);
+}
+
+@media (max-width: 767px) {
+  .motion .page-home .showcase {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+}
+
+/* Keyboard users must never focus an invisible link: restore the faded content */
+.hero__inner:focus-within {
+  opacity: 1 !important;
+}

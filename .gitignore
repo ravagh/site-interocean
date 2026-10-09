@@ -1,0 +1,15 @@
+# Dependencies & build output
+node_modules/
+dist/
+
+# Environment — secrets stay local / in Vercel; the template is versioned
+.env*
+!.env.example
+
+# Vercel CLI link (per-machine)
+.vercel
+
+# OS / logs
+*.log
+.DS_Store
+Thumbs.db

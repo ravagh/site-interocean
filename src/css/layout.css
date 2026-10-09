@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Layout — containers, grid, sections, surfaces, type primitives
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: calc(var(--container-narrow) + var(--gutter) * 2);
+}
+
+/* 12-column grid from 1024px; single column below */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--grid-gap);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* ---- Sections & surfaces ----------------------------------------------- */
+.section {
+  position: relative;
+  padding-block: var(--section-pad);
+}
+
+.section--tight {
+  padding-block: var(--section-pad-sm);
+}
+
+.surface-light {
+  background: var(--c-surface);
+  color: var(--c-ink);
+}
+
+.surface-tint {
+  background: var(--c-surface-tint);
+  color: var(--c-ink);
+}
+
+.surface-dark {
+  background: var(--c-ocean);
+  color: var(--c-on-dark);
+}
+
+.surface-deep {
+  background: var(--c-ocean-deep);
+  color: var(--c-on-dark);
+}
+
+/* ---- Type primitives ----------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--c-accent-text);
+}
+
+/* Short brand-gradient rule before eyebrows (gradient runs left → right) */
+.eyebrow::before {
+  content: '';
+  flex: none;
+  margin-top: 0.62em; /* centred on the first line, even when the label wraps */
+  width: 2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient-brand);
+}
+
+.eyebrow--plain::before {
+  display: none;
+}
+
+[data-theme='dark'] .eyebrow {
+  color: var(--c-tangerine);
+}
+
+.display {
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+}
+
+.h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-display);
+}
+
+.h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+}
+
+.h4 {
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--c-ink-muted);
+}
+
+.text-muted {
+  color: var(--c-ink-muted);
+}
+
+[data-theme='dark'] .lead,
+[data-theme='dark'] .text-muted {
+  color: var(--c-on-dark-muted);
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose {
+  color: var(--c-ink-muted);
+}
+
+[data-theme='dark'] .prose {
+  color: var(--c-on-dark-muted);
+}
+
+.accent {
+  color: var(--c-tangerine);
+}
+
+.section-head {
+  display: grid;
+  gap: var(--space-5);
+  margin-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+.section-head__title {
+  max-width: 18ch;
+}
+
+@media (min-width: 1024px) {
+  .section-head--split {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    column-gap: var(--grid-gap);
+  }
+
+  .section-head--split .section-head__main {
+    grid-column: 1 / span 7;
+  }
+
+  .section-head--split .section-head__aside {
+    grid-column: 8 / -1;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.section-head__main {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+}
+
+/* Hairline with brand gradient — used sparingly as a divider */
+.rule-gradient {
+  display: block;
+  height: 2px;
+  border: 0;
+  background: var(--gradient-brand);
+  transform-origin: left center;
+}
+
+/* Stack helper */
+.stack {
+  display: grid;
+  gap: var(--stack-gap, var(--space-5));
+  justify-items: start;
+}

@@ -1,0 +1,133 @@
+{
+  "category-consumer-goods": {
+    "width": 3840,
+    "height": 2563,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#180808",
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQAwCdASoYABAAPu1kqU2ppaQiMAgBMB2JYwCdAA06BzM5FewgAP6+NEST2AVMrST9NFqwZhQ40HU+2FJ8Hh3Q5r2K2rXQVIx8nXyUF7Gm6uHjN4E3R6LIXE3PnXAA"
+  },
+  "category-energy-solar": {
+    "width": 3840,
+    "height": 2550,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#98b8d8",
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoYABAAPu1kqk2ppaQiMAgBMB2JQBOgBD0N1X9+EdHr4k0gAP6MJA37KGSng5EJ3ewIw6+SwigtPoxnsmP4shrs0kVzFA3IiHoJNKvcAAA="
+  },
+  "category-food-agriculture": {
+    "width": 2700,
+    "height": 1835,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#686868",
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoYABAALrV2u12jqampiYC0SxAE6QRGMJE0j3iiU1v8R6oAAP6QIYY9KOpp9xnVyyUZh9MyQIIVl59b7+KHh/E2JYvvKMlzmC3M0AAA"
+  },
+  "category-industrial-supplies": {
+    "width": 2448,
+    "height": 1960,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#888888",
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQBACdASoYABMAPu1ipU4ppSMiMBgMATAdiWcAACmMFqcm3xdRHOwyBPWgAPJzxcyHOna9QtMnfVcnJJKbuunTGmQtnhlPgnw/XqauoKeKlSYWu0EryqePZLhfJ0K3TEW3O8yHgIoAAA=="
+  },
+  "containers-overhead": {
+    "width": 2560,
+    "height": 1440,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#383838",
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAwCdASoYAA4APu1iqU2ppaO4MAgDAB2JZwAAWOzzomEEzEAA/RKJpIA/80mDJZWbdnIT+rzlkmoAAAA="
+  },
+  "hero-poster-mobile": {
+    "width": 1080,
+    "height": 1922,
+    "widths": [
+      640,
+      1024,
+      1080
+    ],
+    "color": "#181828",
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwBQCdASoYACsAPuleqE2pJSQiNVQMASAdCUAWI/FAs9UhsaK/IO68rqJuQfc3ff0puyJ8sWgSAAD+7ULZK/pY7q12XNc4jDrSFumLzcFVzTOWyM+SrIU7SO3AHJlZpAj27+55qyWc3Rqd5whn/TVk0Qn41BXX2jgyBEFXZpmsKTZ9B55ZhqGzfF1Bn0IwAAA="
+  },
+  "hero-poster": {
+    "width": 2560,
+    "height": 1440,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#181828",
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoYAA4APu1kq04ppaQiMAgBMB2JYwCdMoADTlXp4muEpjLAAP6yCEuPGtiG9OnGMYpBotptusQIkRc1nUOZsaEqbaViqZ1aU5LYrDV1AAA="
+  },
+  "port-dusk-cranes": {
+    "width": 3840,
+    "height": 2885,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#f8c8b8",
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoYABIAPu1oqk8ppiOiMBgIATAdiWMAxNgQ640BWJK4pAD+00ow0JzlnAXtUnid0fhG2yJ+djnC5UY0LH/WHIpgjGP9YdnuyEDsCYnMCZkdoAAA"
+  },
+  "port-night-reflections": {
+    "width": 3840,
+    "height": 2528,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#181818",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoYABAAPu1krU2ppaSiMAgBMB2JZQC06CHWSetugxnwAP7ufqQoypazMPjbj6p6fLV9KXtvJ/93xDLzMJUMJrocAuOAAAAA"
+  },
+  "port-sunset-cranes": {
+    "width": 3840,
+    "height": 2160,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#686868",
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JagCdMoMYOS2AXSwpyg7WAAD8mxQa4ykjoQek9KprhMPZ/X1RRBV4b4uwWQfhpj34kDtEtN86TMqd9LktFTOAAAA="
+  },
+  "terminal-crane-ship": {
+    "width": 2560,
+    "height": 1440,
+    "widths": [
+      640,
+      1024,
+      1600,
+      2400
+    ],
+    "color": "#181828",
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQBACdASoYAA4APu1mqk2ppaQiMAgBMB2JYgCdMoAJbhH+Gf3lrqrK9MiAAP6gxI1vrg7dPetnm5crNnzXwd0YV/ayZVXglLBg7iYQk+DIU/ecQeWEipEp4Nm9zGo9T7G/rgV3NAAAAA=="
+  }
+}

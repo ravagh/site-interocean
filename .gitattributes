@@ -1,0 +1,18 @@
+# Normalize line endings (Vercel builds on Linux)
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.gif binary
+*.ico binary
+*.mp4 binary
+*.webm binary
+*.woff binary
+*.woff2 binary
+*.psd binary
+*.ai binary
+*.pdf binary

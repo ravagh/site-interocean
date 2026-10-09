@@ -1,0 +1,66 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__bar" data-scroll-progress></span></div>
+
+<header class="site-header" data-header data-header-theme="{{theme}}">
+  <div class="site-header__bar container">
+    <a class="site-header__brand" href="/" aria-label="Inter Ocean — Home">
+      <!-- @logo variant="primary" class="brand-logo brand-logo--primary" alt="" -->
+      <!-- @logo variant="negative" class="brand-logo brand-logo--negative" alt="" -->
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list" role="list">
+        <li><a class="site-nav__link" href="/about/" data-nav="about">About Us</a></li>
+        <li><a class="site-nav__link" href="/products/" data-nav="products">Products &amp; Industries</a></li>
+        <li><a class="site-nav__link" href="/global-trade/" data-nav="global-trade">Global Trade</a></li>
+        <li><a class="site-nav__link" href="/business/" data-nav="business">Business With Us</a></li>
+        <li><a class="site-nav__link" href="/contact/" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="btn btn--primary btn--sm site-header__cta" href="/contact/">
+        <span class="btn__label">Let's Talk Business</span>
+        <!-- @icon btn-arrow -->
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="visually-hidden">Open menu</span>
+        <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-menu hidden>
+  <div class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Site menu" data-theme="dark">
+    <div class="mobile-menu__top container">
+      <a class="site-header__brand" href="/" aria-label="Inter Ocean — Home">
+        <!-- @logo variant="negative" class="brand-logo" alt="" -->
+      </a>
+      <button class="menu-close" type="button" data-menu-close>
+        <span class="visually-hidden">Close menu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <nav class="mobile-menu__nav container" aria-label="Mobile">
+      <ol class="mobile-menu__list" role="list">
+        <li><a href="/" data-nav="home"><span class="mobile-menu__num">01</span><span class="mobile-menu__label">Home</span></a></li>
+        <li><a href="/about/" data-nav="about"><span class="mobile-menu__num">02</span><span class="mobile-menu__label">About Us</span></a></li>
+        <li><a href="/products/" data-nav="products"><span class="mobile-menu__num">03</span><span class="mobile-menu__label">Products &amp; Industries</span></a></li>
+        <li><a href="/global-trade/" data-nav="global-trade"><span class="mobile-menu__num">04</span><span class="mobile-menu__label">Global Trade</span></a></li>
+        <li><a href="/business/" data-nav="business"><span class="mobile-menu__num">05</span><span class="mobile-menu__label">Business With Us</span></a></li>
+        <li><a href="/contact/" data-nav="contact"><span class="mobile-menu__num">06</span><span class="mobile-menu__label">Contact</span></a></li>
+      </ol>
+    </nav>
+
+    <div class="mobile-menu__foot container">
+      <a class="btn btn--primary" href="/contact/">
+        <span class="btn__label">Let's Talk Business</span>
+        <!-- @icon btn-arrow -->
+      </a>
+      <p class="mobile-menu__meta">International Trading Company<br>Orlando, Florida, USA</p>
+    </div>
+    <span class="mobile-menu__rule" aria-hidden="true"></span>
+  </div>
+</div>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <!-- @include head title="Contact — Let's Talk Business · Inter Ocean" description="Send a product inquiry, supplier proposal or partnership request to Inter Ocean, an international trading company headquartered in Orlando, Florida." path="/contact/" -->
+</head>
+<body class="page-contact">
+  <!-- @include header theme="light" active="contact" -->
+
+  <main id="main">
+    <!-- Hero ---------------------------------------------------------------- -->
+    <section class="page-hero page-hero--light" data-theme="light" aria-labelledby="page-title">
+      <div class="container page-hero__inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <p class="eyebrow" data-reveal>Let's Talk Business</p>
+        <h1 class="page-hero__title" id="page-title" data-split>Have a Product in Mind?</h1>
+        <p class="page-hero__lead" data-reveal>Tell us what you're looking for, what your business needs or what opportunity you'd like to explore. Every meaningful transaction begins somewhere. Let's start the conversation.</p>
+      </div>
+      <span class="page-hero__rule" aria-hidden="true"></span>
+    </section>
+
+    <!-- Form + info --------------------------------------------------------- -->
+    <section class="section surface-light" data-theme="light" aria-labelledby="form-title">
+      <div class="container contact-layout">
+        <div class="contact-layout__form">
+          <h2 class="h3" id="form-title">Business inquiry</h2>
+          <p class="text-muted form-intro">Fields marked <span class="field__req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+          <form class="inquiry-form" action="#" method="post" novalidate data-contact-form aria-labelledby="form-title">
+            <div class="form-summary" role="alert" tabindex="-1" data-form-summary hidden>
+              <h2>Please review the following:</h2>
+              <ul></ul>
+            </div>
+
+            <div class="field-grid">
+              <div class="field" data-field>
+                <label class="field__label" for="f-name">Full Name<span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-error" maxlength="120">
+                <p class="field__error" id="f-name-error" data-error></p>
+              </div>
+
+              <div class="field" data-field>
+                <label class="field__label" for="f-company">Company<span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="f-company-error" maxlength="160">
+                <p class="field__error" id="f-company-error" data-error></p>
+              </div>
+
+              <div class="field" data-field data-label="Business email">
+                <label class="field__label" for="f-email">Business Email<span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-error" maxlength="160" placeholder="name@company.com">
+                <p class="field__error" id="f-email-error" data-error></p>
+              </div>
+
+              <div class="field" data-field>
+                <label class="field__label" for="f-country">Country<span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="f-country" name="country" type="text" list="country-list" autocomplete="country-name" required aria-describedby="f-country-error" maxlength="80">
+                <datalist id="country-list"></datalist>
+                <p class="field__error" id="f-country-error" data-error></p>
+              </div>
+
+              <fieldset class="field field--full" data-field data-required aria-describedby="f-type-error">
+                <legend>Type of Inquiry<span class="field__req" aria-hidden="true">*</span></legend>
+                <div class="choice-group">
+                  <div class="choice">
+                    <input type="radio" id="f-type-product" name="inquiryType" value="product" required>
+                    <label for="f-type-product">Product Inquiry</label>
+                  </div>
+                  <div class="choice">
+                    <input type="radio" id="f-type-supplier" name="inquiryType" value="supplier">
+                    <label for="f-type-supplier">Supplier Proposal</label>
+                  </div>
+                  <div class="choice">
+                    <input type="radio" id="f-type-partnership" name="inquiryType" value="partnership">
+                    <label for="f-type-partnership">Business Partnership</label>
+                  </div>
+                  <div class="choice">
+                    <input type="radio" id="f-type-general" name="inquiryType" value="general">
+                    <label for="f-type-general">General Inquiry</label>
+                  </div>
+                </div>
+                <p class="field__error" id="f-type-error" data-error></p>
+              </fieldset>
+
+              <div class="field" data-field>
+                <label class="field__label" for="f-interest">Product or Business Interest<span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" id="f-interest" name="interest" type="text" required aria-describedby="f-interest-hint f-interest-error" maxlength="160">
+                <p class="field__hint" id="f-interest-hint">For example: a product, a category or the type of partnership.</p>
+                <p class="field__error" id="f-interest-error" data-error></p>
+              </div>
+
+              <div class="field" data-field>
+                <label class="field__label" for="f-quantity">Estimated Quantity <span class="field__optional">(optional)</span></label>
+                <input class="field__input" id="f-quantity" name="quantity" type="text" aria-describedby="f-quantity-hint" maxlength="120">
+                <p class="field__hint" id="f-quantity-hint">Volume, units or frequency — whatever applies.</p>
+              </div>
+
+              <div class="field field--full" data-field>
+                <label class="field__label" for="f-message">Message<span class="field__req" aria-hidden="true">*</span></label>
+                <textarea class="field__input" id="f-message" name="message" rows="6" required minlength="20" maxlength="4000" aria-describedby="f-message-hint f-message-error"></textarea>
+                <p class="field__hint" id="f-message-hint">Specifications, commercial requirements, timing — anything that helps us understand the opportunity.</p>
+                <p class="field__error" id="f-message-error" data-error></p>
+              </div>
+
+              <div class="hp-field" aria-hidden="true">
+                <label for="f-website">Leave this field empty</label>
+                <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="form-status" role="status" aria-live="polite" tabindex="-1" data-form-status hidden></div>
+
+            <div class="form-actions">
+              <button class="btn btn--primary" type="submit" data-label="Send Inquiry">
+                <span class="btn__label">Send Inquiry</span>
+                <!-- @icon btn-arrow -->
+              </button>
+              <p class="form-note">This form is intended for business inquiries.</p>
+            </div>
+          </form>
+        </div>
+
+        <aside class="contact-layout__aside" aria-label="Company information">
+          <div class="contact-card" data-theme="dark">
+            <!-- @logo variant="negative" class="contact-card__logo" alt="Inter Ocean" -->
+            <dl class="contact-card__list">
+              <div class="contact-card__row">
+                <dt><span class="contact-card__icon" aria-hidden="true"><!-- @icon pin --></span>Headquarters</dt>
+                <dd>Orlando, Florida, USA</dd>
+              </div>
+              <div class="contact-card__row" data-contact-email hidden>
+                <dt><span class="contact-card__icon" aria-hidden="true"><!-- @icon mail --></span>Email</dt>
+                <dd><a href="#" data-contact-email-link></a></dd>
+              </div>
+            </dl>
+            <div>
+              <p class="eyebrow contact-card__eyebrow">What happens next</p>
+              <ol class="next-steps">
+                <li>We review your inquiry and the requirements you shared.</li>
+                <li>We evaluate whether it aligns with our trading activities.</li>
+                <li>When there's a good fit, we follow up to discuss next steps.</li>
+              </ol>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include footer -->
+</body>
+</html>

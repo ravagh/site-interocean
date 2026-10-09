@@ -1,0 +1,308 @@
+/* ==========================================================================
+   Forms — business inquiry
+   ========================================================================== */
+
+.inquiry-form {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.field-grid {
+  display: grid;
+  gap: var(--space-5) var(--grid-gap);
+}
+
+@media (min-width: 768px) {
+  .field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.field__label,
+.field legend {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--c-ocean);
+}
+
+.field__req {
+  color: var(--c-accent-text);
+  margin-left: 0.15rem;
+}
+
+.field__optional {
+  font-weight: var(--fw-regular);
+  color: var(--c-ink-muted);
+}
+
+.field__hint {
+  font-size: var(--fs-xs);
+  color: var(--c-ink-muted);
+}
+
+.field__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--c-white);
+  color: var(--c-ink);
+  font-size: 1rem; /* ≥16px prevents iOS zoom on focus */
+  line-height: 1.4;
+  transition: border-color var(--dur-fast) linear, box-shadow var(--dur-fast) linear;
+  appearance: none;
+}
+
+textarea.field__input {
+  min-height: 9.5rem;
+  resize: vertical;
+}
+
+.field__input::placeholder {
+  color: var(--c-ink-soft);
+}
+
+.field__input:hover {
+  border-color: var(--c-ocean);
+}
+
+.field__input:focus-visible {
+  outline: none;
+  border-color: var(--c-ocean);
+  box-shadow: 0 0 0 3px rgb(141 200 232 / 0.6);
+}
+
+.field.is-invalid .field__input {
+  border-color: var(--c-error);
+}
+
+.field.is-invalid .field__input:focus-visible {
+  box-shadow: 0 0 0 3px rgb(180 35 24 / 0.2);
+}
+
+.field__error {
+  min-height: 0;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--c-error);
+}
+
+.field__error:empty {
+  display: none;
+}
+
+/* ---- Inquiry type: radio chips --------------------------------------------- */
+fieldset.field {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+fieldset.field legend {
+  padding: 0;
+  margin-bottom: 0.45rem;
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.choice {
+  position: relative;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.choice label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--c-white);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) linear, border-color var(--dur-fast) linear, color var(--dur-fast) linear;
+}
+
+.choice label::before {
+  content: '';
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-ink-soft);
+  transition: background-color var(--dur-fast) linear, border-color var(--dur-fast) linear;
+}
+
+.choice label:hover {
+  border-color: var(--c-ocean);
+}
+
+.choice input:checked + label {
+  background: var(--c-ocean);
+  border-color: var(--c-ocean);
+  color: var(--c-white);
+}
+
+.choice input:checked + label::before {
+  background: var(--c-tangerine);
+  border-color: var(--c-tangerine);
+}
+
+.choice input:focus-visible + label {
+  outline: var(--focus-width) solid var(--c-ocean);
+  outline-offset: 3px;
+}
+
+.field.is-invalid .choice label {
+  border-color: rgb(180 35 24 / 0.5);
+}
+
+/* ---- Honeypot --------------------------------------------------------------- */
+.hp-field {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---- Error summary & status --------------------------------------------------- */
+.form-summary,
+.form-status {
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+.form-summary {
+  border: 1px solid rgb(180 35 24 / 0.35);
+  background: #fdf3f2;
+  color: var(--c-ink);
+}
+
+.form-summary h2 {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+  color: var(--c-error);
+  margin-bottom: 0.4rem;
+}
+
+.form-summary ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.form-summary a {
+  color: var(--c-error);
+}
+
+.form-summary:focus,
+.form-status:focus {
+  outline: none;
+}
+
+.form-summary:focus-visible,
+.form-status:focus-visible {
+  outline: var(--focus-width) solid var(--c-ocean);
+  outline-offset: 2px;
+}
+
+.form-status--unavailable {
+  border: 1px solid var(--c-tangerine-40);
+  background: var(--c-tangerine-20);
+  color: var(--c-ink);
+}
+
+.form-status--success {
+  border: 1px solid rgb(31 122 77 / 0.35);
+  background: #eef8f2;
+  color: var(--c-ink);
+}
+
+.form-status--error {
+  border: 1px solid rgb(180 35 24 / 0.35);
+  background: #fdf3f2;
+  color: var(--c-ink);
+}
+
+.form-status a {
+  color: inherit;
+  font-weight: var(--fw-semibold);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.form-note {
+  font-size: var(--fs-xs);
+  color: var(--c-ink-muted);
+  max-width: 34rem;
+}
+
+.form-preview-note {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: var(--c-sky-20);
+  font-size: var(--fs-xs);
+  color: var(--c-ink-muted);
+}
+
+.form-preview-note[hidden] {
+  display: none;
+}
+
+/* ---- Loading state ------------------------------------------------------------ */
+.btn.is-loading {
+  cursor: progress;
+}
+
+.btn.is-loading .btn__icon svg {
+  opacity: 0;
+}
+
+.btn.is-loading .btn__icon::after {
+  content: '';
+  position: absolute;
+  inset: 11px;
+  border-radius: 50%;
+  border: 2px solid rgb(255 255 255 / 0.35);
+  border-top-color: var(--c-white);
+  animation: spin 800ms linear infinite;
+}
+
+.btn:disabled {
+  opacity: 0.85;
+}

@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Inter Ocean — stylesheet entry
+   Order matters: tokens → base → layout → components → sections → motion → responsive
+   ========================================================================== */
+
+@import './fonts.css';
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './header.css';
+@import './footer.css';
+@import './forms.css';
+
+@import './sections/hero.css';
+@import './sections/home.css';
+@import './sections/pages.css';
+
+@import './animations.css';
+@import './responsive.css';

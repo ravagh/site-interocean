@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Motion system
+   --------------------------------------------------------------------------
+   Initial (hidden) states are scoped to `.motion`, a class set before first
+   paint only when the visitor allows motion — and removed by a failsafe if
+   the JS bundle doesn't boot. Content is therefore never stuck invisible.
+   GSAP (src/js/animations.js) animates from these states.
+   ========================================================================== */
+
+.motion [data-reveal]:not([data-reveal='mask'], .is-revealed),
+.motion [data-reveal-stagger] > :not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+.motion [data-reveal='mask']:not(.is-revealed) {
+  clip-path: inset(100% 0 0 0 round var(--radius-md));
+}
+
+.motion [data-reveal='mask']:not(.is-revealed) .media img {
+  transform: scale(1.18);
+}
+
+/* Approach steps reveal as the scroll-drawn line reaches them */
+.motion [data-approach-step]:not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+
+/* Global stage copy appears once the photo has expanded */
+.motion [data-global-copy] {
+  opacity: 0;
+}
+
+/* Split headings start hidden only until SplitText has prepared the lines */
+.motion [data-split]:not(.is-split) {
+  opacity: 0;
+}
+
+.split-line {
+  display: block;
+}
+
+/* Hero intro — pure CSS so it starts at first paint, without waiting for JS
+   (keeps the hero text — usually the LCP element — fast on slow devices). */
+.motion [data-hero-line] {
+  animation: hero-line-in 1.3s var(--ease-out) 0.1s both;
+}
+
+.motion .hero__line + .hero__line [data-hero-line] {
+  animation-delay: 0.22s;
+}
+
+.motion [data-hero-intro] {
+  animation: hero-fade-in 1.1s var(--ease-out) 0.35s both;
+}
+
+.motion .hero__foot [data-hero-intro] {
+  animation-delay: 0.45s;
+}
+
+.motion .hero__foot [data-hero-intro] + [data-hero-intro] {
+  animation-delay: 0.55s;
+}
+
+.motion [data-hero-panel] {
+  animation: hero-panel-in 1.1s var(--ease-out) 0.6s both;
+}
+
+@keyframes hero-line-in {
+  from {
+    transform: translate3d(0, 105%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-panel-in {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* SVG strokes drawn on scroll start invisible */
+.motion [data-draw],
+.motion [data-route] {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.motion [data-route-node] {
+  opacity: 0;
+}
+
+/* ---- Cross-document page transitions (progressive enhancement) ------- */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: 320ms var(--ease-in-out) both vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 520ms var(--ease-out) both vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* ---- Utility keyframes ----------------------------------------------- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 130 0 / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgb(255 130 0 / 0);
+  }
+}
+
+/* ---- Reduced motion: everything static and visible -------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

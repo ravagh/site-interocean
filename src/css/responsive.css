@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Responsive — cross-cutting adjustments
+   Component-specific breakpoints live next to each component (mobile-first).
+   This file covers global edge cases: small phones, short landscape screens,
+   very wide displays and print.
+   ========================================================================== */
+
+/* ---- Small phones (≤ 400px) ------------------------------------------------ */
+@media (max-width: 400px) {
+  .btn {
+    font-size: 0.875rem;
+    padding-left: 1.2rem;
+  }
+
+  .btn-row .btn,
+  .cta-band .btn,
+  .cta-final .btn,
+  .category-row .btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .category-row .btn {
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+/* ---- Tablets: CTA buttons inside text columns can wrap ----------------------- */
+@media (max-width: 767px) {
+  .category-row .btn,
+  .audience .btn {
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+/* ---- Short landscape screens (phones turned sideways) ---------------------- */
+@media (max-height: 560px) and (orientation: landscape) {
+  .hero__title {
+    font-size: clamp(2rem, 1rem + 4vw, 3.25rem);
+  }
+
+  .hero__lead {
+    display: none;
+  }
+
+  .hero__inner {
+    gap: var(--space-5);
+    padding-bottom: 3.5rem;
+  }
+
+  .page-hero--photo {
+    min-height: auto;
+  }
+
+  .motion .global-home__wrap {
+    height: auto;
+  }
+
+  .motion .global-home__stage {
+    position: relative;
+  }
+
+  .motion .global-home__media {
+    --clip: 0 !important;
+  }
+
+  .motion [data-global-copy] {
+    opacity: 1 !important;
+  }
+}
+
+/* ---- Wide displays (≥ 1920px) ---------------------------------------------- */
+@media (min-width: 1920px) {
+  :root {
+    --container-max: 1600px;
+  }
+
+  .hero__title {
+    font-size: 6.25rem;
+  }
+}
+
+/* ---- Print ------------------------------------------------------------------ */
+@media print {
+  .site-header,
+  .mobile-menu,
+  .scroll-progress,
+  .skip-link,
+  .hero-media__video,
+  .hero-media__canvas,
+  .hero__progress,
+  .cta-final__waves,
+  .global-home__routes,
+  .page-hero__routes {
+    display: none !important;
+  }
+
+  .hero__track,
+  .global-home__wrap {
+    height: auto !important;
+  }
+
+  .hero__stage,
+  .global-home__stage {
+    position: relative !important;
+    height: auto !important;
+  }
+
+  [data-reveal],
+  [data-reveal-stagger] > *,
+  [data-split],
+  .hero__inner,
+  [data-global-copy] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  body {
+    color: #000;
+  }
+}
